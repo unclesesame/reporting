@@ -1,0 +1,3 @@
+Component,DataFolder,ArchiveFolder,SourceFileName,ArchiveFileName,Processor,Validator
+Human,#{dataFolder}/employee,#{archiveFolder}/Human,employee.csv,Employee.csv,copyProcessor,
+Human,#{dataFolder}/student,#{archiveFolder}/Human,student.csv,Student.txt,copyProcessor,

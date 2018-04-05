@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+ 						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+ 
+<context:component-scan base-package="com.abner.codebase.reporting.domain" />
+ 
+<bean id="bootstrapService" class="com.abner.codebase.reporting.service.impl.DefaultBootstrapService">
+	<constructor-arg ref="domainMetaDataConfig"/>
+	<constructor-arg ref="domainBinder" />
+	<constructor-arg ref="domainDescriberDictionary" />
+	<constructor-arg ref="cacheManager" />
+</bean>
+
+<bean id="reportingService" class="com.abner.codebase.reporting.service.impl.DefaultReportingService">
+	<constructor-arg ref="domainDescriberDictionary" />
+</bean>
+
+<bean id="domainDescriberDictionary" class="com.abner.codebase.reporting.infra.impl.DefaultDomainDescriberDictionary"></bean>
+
+<bean id="domainMetaDataConfig" class="com.abner.codebase.reporting.infra.impl.DomainMetaDataConfigImpl">
+	<constructor-arg ref="domainDescriberDictionary" />
+</bean>
+
+<bean id="domainBinder" class="com.abner.codebase.reporting.infra.impl.DomainBinderImpl" />
+
+<bean id="cacheManager" class="com.abner.codebase.reporting.infra.impl.CacheManager" lazy-init="true"/>
+
+<bean id="attributeParser" class="com.abner.codebase.reporting.infra.impl.DefaultAttributeParser" />
+
+<bean id="domainFieldMapper" class="com.abner.codebase.reporting.infra.impl.DefaultDomainFieldMapper" />
+
+<bean id="beanReaderBuilder" class="com.abner.codebase.reporting.infra.impl.BeanReaderBuilder" scope="prototype"/>
+
+</beans>
+ 

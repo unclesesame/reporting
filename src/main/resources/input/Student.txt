@@ -1,0 +1,5 @@
+Name|Age|Sex|Hobby
+Mike|8|Male|Singing
+Scott|7|Male|Painting
+Laura|9|Female|Dancing
+Queen|8|Female|Singing
